@@ -39,6 +39,8 @@ Same as **Preview current scene** but uses flags `-qp` and `-qm` respectively
 python renderer.py <manim_file.py> [-n line_number_inside_scene] [-m manim_args] [-c class_name_to_render] [-l]
 ```
 
+If no options are specified, all scenes are rendered.
+
 | Option | Long | Description |
 | ------ | ----- | ----------- |
 | `-n`   | `--line_number` | Render the scene class containing the given line number. |
