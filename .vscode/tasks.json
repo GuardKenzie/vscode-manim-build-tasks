@@ -1,0 +1,105 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Preview current scene",
+            "type": "shell",
+            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "args": [
+                "${file}",
+                "-n", "${lineNumber}",
+                "-m", "s"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Render current scene (medium quality)",
+            "type": "shell",
+            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "args": [
+                "${file}",
+                "-n", "${lineNumber}",
+                "-m", "qm"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Render current scene (high quality)",
+            "type": "shell",
+            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "args": [
+                "${file}",
+                "-n", "${lineNumber}",
+                "-m", "qp"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+
+        },
+        {
+            "label": "Render all scenes",
+            "type": "shell",
+            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "args": [
+                "${file}",
+                "-m", "qp"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Render scene",
+            "type": "shell",
+            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "args": [
+                "${file}",
+                "-c", "${input:className}",
+                "-m", "q${input:quality}"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "quality",
+            "description": "Which quality should the scene be rendered in?",
+            "options": [
+                "p",
+                "h",
+                "m",
+                "l"
+            ],
+            "default": "h"
+        },
+        {
+            "type": "command",
+            "id": "className",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "python ./scripts/renderer.py ${file} -l",
+                "cwd": "${workspaceFolder}",
+            }
+        }
+    ]
+}
