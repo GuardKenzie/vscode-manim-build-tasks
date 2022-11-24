@@ -6,8 +6,9 @@
         {
             "label": "Preview current scene",
             "type": "shell",
-            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "command": "python",
             "args": [
+                "${workspaceFolder}/scripts/renderer.py",
                 "${file}",
                 "-n", "${lineNumber}",
                 "-m", "s"
@@ -21,8 +22,9 @@
         {
             "label": "Render current scene (medium quality)",
             "type": "shell",
-            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "command": "python",
             "args": [
+                "${workspaceFolder}/scripts/renderer.py",
                 "${file}",
                 "-n", "${lineNumber}",
                 "-m", "qm"
@@ -36,8 +38,9 @@
         {
             "label": "Render current scene (high quality)",
             "type": "shell",
-            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "command": "python",
             "args": [
+                "${workspaceFolder}/scripts/renderer.py",
                 "${file}",
                 "-n", "${lineNumber}",
                 "-m", "qp"
@@ -52,8 +55,9 @@
         {
             "label": "Render all scenes",
             "type": "shell",
-            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "command": "python",
             "args": [
+                "${workspaceFolder}/scripts/renderer.py",
                 "${file}",
                 "-m", "qp"
             ],
@@ -66,8 +70,9 @@
         {
             "label": "Render scene",
             "type": "shell",
-            "command": "python '${workspaceFolder}/scripts/renderer.py'",
+            "command": "python",
             "args": [
+                "${workspaceFolder}/scripts/renderer.py",
                 "${file}",
                 "-c", "${input:className}",
                 "-m", "q${input:quality}"
